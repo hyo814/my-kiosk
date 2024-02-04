@@ -43,6 +43,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage":"https://thriving-souffle-725d1a.netlify.app/"
   "eslintConfig": {
     "extends": [
       "react-app",
