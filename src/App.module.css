@@ -3,10 +3,6 @@
   height:auto;
   font-size:20px;
 }
-.container_menu {
-  width:auto;
-  height:auto;
-}
 
 .menu_categories {
   margin:5px;
@@ -98,11 +94,10 @@ overflow-y:scroll;
   }
 
   .container_menu, .container_view, .filtered_products, .filtered_products_result {
-    width: 346px;
+    width: 420px;
   }
 
   .filtered_products, .filtered_products_result {
-   text-align: center;
     margin:5px;
   }
 
