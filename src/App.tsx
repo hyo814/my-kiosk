@@ -11,8 +11,7 @@ import CheckoutList from "./component/CheckoutList/CheckoutList";
 import {
 	categoriesState,
 	productsState,
-	couponsState,
-	selectedCouponIdState,
+	couponsState
 } from "./state/atoms";
 
 const App = () => {
@@ -38,7 +37,7 @@ const App = () => {
 				setCoupon(response.data.data);
 			})
 			.catch(error => console.error("There was an error coupons!", error));
-	}, []);
+	}, [setCategories, setProducts, setCoupon]);
 	
 	return (
 		<>
