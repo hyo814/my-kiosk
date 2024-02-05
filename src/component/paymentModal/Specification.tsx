@@ -1,18 +1,15 @@
 import React from 'react';
 import styles from "../../App.module.css";
-import {calculateFinalTotalWithDiscount, calculateItemTotal, discountText} from "../Utils/utils";
-import {SelectedProduct} from "../../type/Product";
-import {Coupon} from "../../type/Coupon";
+import { calculateFinalTotalWithDiscount, calculateItemTotal, discountText } from "../Utils/utils";
+import { useRecoilValue } from "recoil";
+import { couponsState, selectedCouponIdState, selectedItemsState } from "../../state/atoms";
 
-interface SpecificationProps {
-	selectedItem: SelectedProduct[];
-	selectedCoupon: Coupon | null;
-}
-
-const Specification: React.FC<SpecificationProps> = ({
-	                                                     selectedItem,
-	                                                     selectedCoupon
-                                                     }) => {
+const Specification: React.FC = () => {
+	const selectedCouponId = useRecoilValue(selectedCouponIdState);
+	const selectedItem = useRecoilValue(selectedItemsState);
+	const coupons = useRecoilValue(couponsState);
+	
+	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
 	
 	return (
 		<>
@@ -22,7 +19,7 @@ const Specification: React.FC<SpecificationProps> = ({
 					{selectedItem.map((item, itemIndex) => (
 						<div key={itemIndex}>
 							<h3 className={styles.selected_title}>{item.name} x {item.itemCount}</h3>
-							{item.option.map((opt, optIndex) => (
+							{item.option && item.option.map((opt, optIndex) => (
 								<div className={styles.option_title} key={optIndex}>
 									<p>{opt.name} - {opt.count ? `x ${opt.count}` : ''} {opt.price ? `${opt.price}원` : ''}</p>
 								</div>
@@ -35,7 +32,7 @@ const Specification: React.FC<SpecificationProps> = ({
 					<div className={styles.apply_discount_text}>{selectedCoupon ? selectedCoupon.name : '할인 정보'}</div>
 					<div className={styles.apply_discount_price}>{discountText(selectedCoupon)}</div>
 				</div>
-				<div className={styles.total_price}>{calculateFinalTotalWithDiscount(selectedCoupon,selectedItem)}원 결제</div>
+				<div className={styles.total_price}>{calculateFinalTotalWithDiscount(selectedCoupon, selectedItem)}원 결제</div>
 			</div>
 		</>
 	);

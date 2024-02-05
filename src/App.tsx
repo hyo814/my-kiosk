@@ -1,23 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
+import {useRecoilState} from 'recoil';
 import styles from "./App.module.css";
 
-import ButtonModal from "./component/paymentModal/ButtonModal";
-import MenuBar from "./component/MenuBar/MenuBar";
-import MenuCategory from "./component/MenuCategory/MenuCategory";
-import Payment from "./component/Payment/Payment";
-import {Category} from "./type/Category";
-import {Product, SelectedProduct} from "./type/Product";
-import {Coupon} from "./type/Coupon";
+import PaymentSummary from "./PaymentSummary/PaymentSummary";
+import CategoryHeader from "./component/CategoryHeader/CategoryHeader";
+import ProductList from "./component/ProductList/ProductList";
+import CheckoutList from "./component/CheckoutList/CheckoutList";
+
+import {
+	categoriesState,
+	productsState,
+	couponsState,
+	selectedCouponIdState,
+} from "./state/atoms";
 
 const App = () => {
-	const [categories, setCategories] = useState<Category[]>([]);
-	const [products, setProducts] = useState<Product[]>([]);
-	const [selectedCategoryId, setSelectedCategoryId] = useState<string>("payhere.coffee");
-	const [selectedItem, setSelectedItem] = useState<SelectedProduct[]>([]);
-	const [coupon, setCoupon] = useState<Coupon[]>([]);
-	const [payment, setPayment] = useState<boolean>(false);
-	const [selectedCouponId, setSelectedCouponId] = useState<string>('');
+	const [, setCategories] = useRecoilState(categoriesState);
+	const [, setProducts] = useRecoilState(productsState);
+	const [coupon, setCoupon] = useRecoilState(couponsState);
+	const [selectedCouponId] = useRecoilState(selectedCouponIdState);
 	
 	useEffect(() => {
 		axios.get('/categories')
@@ -39,34 +41,16 @@ const App = () => {
 			.catch(error => console.error("There was an error coupons!", error));
 	}, []);
 	
-	
-	const selectedCoupon = coupon.find(coupons => coupons.id === selectedCouponId);
-	
 	return (
 		<>
 			<div className={styles.container}>
-				<MenuBar
-					categories={categories}
-					setSelectedCategoryId={setSelectedCategoryId}/>
+				<CategoryHeader/>
 				<div className={styles.container_view}>
-					<MenuCategory products={products} selectedCategoryId={selectedCategoryId} selectedItem={selectedItem}
-					              setSelectedItem={setSelectedItem}/>
-					<Payment
-						selectedItem={selectedItem}
-						setSelectedItem={setSelectedItem}
-						selectedCouponId={selectedCouponId}
-						selectedCoupon={selectedCoupon ?? null}
-						coupon={coupon}
-						setSelectedCouponId={setSelectedCouponId}
-					/>
+					<ProductList/>
+					<CheckoutList/>
 				</div>
 			</div>
-			<ButtonModal
-				selectedItem={selectedItem}
-				setPayment={setPayment}
-				payment={payment}
-				selectedCoupon={selectedCoupon ?? null}
-			/>
+			<PaymentSummary/>
 		</>
 	);
 }

@@ -11,6 +11,6 @@ export interface Product {
 
 export interface SelectedProduct extends Product {
 	itemCount: number;
-	option: Option[];
+	option: Option[]
 	url?: string;
 }

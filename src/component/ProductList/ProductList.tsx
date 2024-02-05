@@ -3,18 +3,18 @@ import styles from "../../App.module.css";
 import { Button } from "@mui/material";
 import { getPriceDisplayStr } from "../Utils/utils";
 import { Product, SelectedProduct } from "../../type/Product";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { productsState, selectedCategoryIdState, selectedItemsState } from "../../state/atoms";
 
-interface MenuCategoryProps {
-	products: Product[];
-	selectedItem: SelectedProduct[];
-	setSelectedItem: React.Dispatch<React.SetStateAction<SelectedProduct[]>>;
-	selectedCategoryId: string;
-}
-
-const MenuCategory: React.FC<MenuCategoryProps> = ({ products, selectedItem, setSelectedItem, selectedCategoryId }) => {
+const ProductList: React.FC = () => {
+	const products = useRecoilValue(productsState);
+	const [selectedItem, setSelectedItem] = useRecoilState(selectedItemsState);
+	const selectedCategoryId = useRecoilValue(selectedCategoryIdState);
+	
 	const filteredProducts = products.filter(product => product.categoryId === selectedCategoryId);
+	
 	const addProductToSelectedItem = (product: Product) => {
-		const existingProductIndex = selectedItem.findIndex(p => p.name === product.name);
+		const existingProductIndex = selectedItem.findIndex(p => p.id === product.id);
 		if (existingProductIndex > -1) {
 			const newSelectedProducts = [...selectedItem];
 			newSelectedProducts[existingProductIndex] = {
@@ -26,7 +26,7 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ products, selectedItem, set
 			const newProduct: SelectedProduct = {
 				...product,
 				itemCount: 1,
-				option: product.option || [],
+				option: product.option ?? [],
 			};
 			setSelectedItem(prevItems => [...prevItems, newProduct]);
 		}
@@ -52,4 +52,4 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ products, selectedItem, set
 	);
 };
 
-export default MenuCategory;
+export default ProductList;

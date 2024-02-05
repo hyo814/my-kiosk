@@ -4,26 +4,15 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { Button, ButtonGroup } from "@mui/material";
+import {Button, ButtonGroup} from "@mui/material";
 import {calculateItemTotal, getPriceDisplayStr} from "../Utils/utils";
-import {Coupon} from "../../type/Coupon";
-import {SelectedProduct} from "../../type/Product";
+import {useRecoilState, useRecoilValue} from "recoil";
+import {couponsState, selectedItemsState, selectedCouponIdState} from "../../state/atoms";
 
-interface CouponProps {
-	selectedItem: SelectedProduct[];
-	setSelectedItem: React.Dispatch<React.SetStateAction<SelectedProduct[]>>;
-	coupon: Coupon[];
-	selectedCouponId: string;
-	setSelectedCouponId: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const CouponSelect: React.FC<CouponProps> = ({
-	                                             selectedItem,
-	                                             setSelectedItem,
-	                                             coupon,
-	                                             selectedCouponId,
-	                                             setSelectedCouponId }) => {
-	
+const CouponManager: React.FC = () => {
+	const [selectedItem, setSelectedItem] = useRecoilState(selectedItemsState)
+	const coupon = useRecoilValue(couponsState)
+	const [selectedCouponId, setSelectedCouponId] = useRecoilState(selectedCouponIdState)
 	const removeItem = (productName: string) => {
 		setSelectedItem(currentItems => currentItems.filter(item => item.name !== productName));
 	};
@@ -51,8 +40,8 @@ const CouponSelect: React.FC<CouponProps> = ({
 							updatedCount = Math.max(0, updatedCount);
 						}
 						
-						newOptions[optionIndex] = { ...option, count: updatedCount };
-						return { ...item, option: newOptions };
+						newOptions[optionIndex] = {...option, count: updatedCount};
+						return {...item, option: newOptions};
 					}
 				}
 				return item;
@@ -63,7 +52,7 @@ const CouponSelect: React.FC<CouponProps> = ({
 	const handleItemCountChange = (productName: string, change: number) => {
 		setSelectedItem(current =>
 			current.map(product =>
-				product.name === productName ? { ...product, itemCount: Math.max(1, product.itemCount + change) } : product
+				product.name === productName ? {...product, itemCount: Math.max(1, product.itemCount + change)} : product
 			)
 		);
 	};
@@ -74,7 +63,7 @@ const CouponSelect: React.FC<CouponProps> = ({
 				<FormControl variant="standard">
 					<InputLabel id="demo-customized-select-label">쿠폰 선택</InputLabel>
 					<Select
-						sx={{ m: 2, p: 1 }}
+						sx={{m: 2, p: 1}}
 						className={styles.coupon}
 						onChange={(e) => setSelectedCouponId(e.target.value)}
 						value={selectedCouponId}
@@ -121,4 +110,4 @@ const CouponSelect: React.FC<CouponProps> = ({
 	);
 };
 
-export default CouponSelect;
+export default CouponManager;
