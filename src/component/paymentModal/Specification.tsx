@@ -17,7 +17,7 @@ const Specification: React.FC = () => {
 				<div className={styles.paper_title}>주문 내역</div>
 				<div>
 					{selectedItem.map((item, itemIndex) => (
-						<div key={itemIndex}>
+						<div className={styles.paper_content} key={itemIndex}>
 							<h3 className={styles.selected_title}>{item.name} x {item.itemCount}</h3>
 							{item.option && item.option.map((opt, optIndex) => (
 								<div className={styles.option_title} key={optIndex}>

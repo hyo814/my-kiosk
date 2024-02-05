@@ -14,7 +14,7 @@ const ProductList: React.FC = () => {
 	const filteredProducts = products.filter(product => product.categoryId === selectedCategoryId);
 	
 	const addProductToSelectedItem = (product: Product) => {
-		const existingProductIndex = selectedItem.findIndex(p => p.id === product.id);
+		const existingProductIndex = selectedItem.findIndex(p => p.name === product.name);
 		if (existingProductIndex > -1) {
 			const newSelectedProducts = [...selectedItem];
 			newSelectedProducts[existingProductIndex] = {
@@ -39,7 +39,7 @@ const ProductList: React.FC = () => {
 					<Button
 						variant="outlined"
 						onClick={() => addProductToSelectedItem(product)}
-						key={product.id}
+						key={product.name}
 						className={styles.product_menu_button}
 						style={{ backgroundImage: `url(${product.url})` }}
 					>

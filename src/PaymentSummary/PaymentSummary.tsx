@@ -20,8 +20,8 @@ const PaymentSummary: React.FC = () => {
 	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
 	
 	return (
-		<div className={styles.App}>
-			<Button className={styles.total_price}
+		<>
+			<Button className={styles.total_price_popup}
 			        variant="contained"
 			        onClick={() => {
 				        if (selectedItem.length > 0) {
@@ -35,9 +35,9 @@ const PaymentSummary: React.FC = () => {
 			</Button>
 			<Modal show={showModal} onClose={closeModal}>
 				<Specification />
-				<Button variant="contained" onClick={closeModal}>영수증 확인</Button>
+				<Button className={styles.printed} variant="contained" onClick={closeModal}>영수증 확인</Button>
 			</Modal>
-		</div>
+		</>
 	);
 };
 

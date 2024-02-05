@@ -61,15 +61,14 @@ const CouponManager: React.FC = () => {
 		<>
 			<div className={styles.selected_item}>
 				<FormControl variant="standard">
-					<InputLabel id="demo-customized-select-label">쿠폰 선택</InputLabel>
+					<InputLabel>쿠폰 선택</InputLabel>
 					<Select
-						sx={{m: 2, p: 1}}
 						className={styles.coupon}
 						onChange={(e) => setSelectedCouponId(e.target.value)}
 						value={selectedCouponId}
 					>
 						{coupon.map((coupons) => (
-							<MenuItem key={coupons.id} value={coupons.id}>{coupons.name}</MenuItem>
+							<MenuItem key={coupons.name} value={coupons.name}>{coupons.name}</MenuItem>
 						))}
 					</Select>
 				</FormControl>
@@ -79,9 +78,9 @@ const CouponManager: React.FC = () => {
 							<div className={styles.pay_button}>
 								<ButtonGroup variant="outlined" aria-label="outlined button group">
 									<Button className={styles.handle_item_count_change}
-									        onClick={() => handleItemCountChange(item.name, -1)}> -1잔 </Button>
+									        onClick={() => handleItemCountChange(item.name, -1)}> -1 </Button>
 									<Button className={styles.handle_item_count_change}
-									        onClick={() => handleItemCountChange(item.name, 1)}> +1잔 </Button>
+									        onClick={() => handleItemCountChange(item.name, 1)}> +1 </Button>
 									<Button className={styles.handle_item_count_change}
 									        onClick={() => removeItem(item.name)}>X</Button>
 								</ButtonGroup>

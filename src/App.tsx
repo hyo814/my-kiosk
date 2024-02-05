@@ -18,8 +18,7 @@ import {
 const App = () => {
 	const [, setCategories] = useRecoilState(categoriesState);
 	const [, setProducts] = useRecoilState(productsState);
-	const [coupon, setCoupon] = useRecoilState(couponsState);
-	const [selectedCouponId] = useRecoilState(selectedCouponIdState);
+	const [, setCoupon] = useRecoilState(couponsState);
 	
 	useEffect(() => {
 		axios.get('/categories')
@@ -49,8 +48,8 @@ const App = () => {
 					<ProductList/>
 					<CheckoutList/>
 				</div>
+				<PaymentSummary/>
 			</div>
-			<PaymentSummary/>
 		</>
 	);
 }
