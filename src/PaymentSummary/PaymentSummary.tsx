@@ -32,7 +32,7 @@ const PaymentSummary: React.FC = () => {
 				        }
 			        }}>
 				{calculateFinalTotalWithDiscount(selectedCoupon, selectedItem)}원 결제
-			</Button>
+			</Button>&nbsp;
 			<Modal show={showModal} onClose={closeModal}>
 				<Specification />
 				<Button className={styles.printed} variant="contained" onClick={closeModal}>영수증 확인</Button>

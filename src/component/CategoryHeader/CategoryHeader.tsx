@@ -17,6 +17,7 @@ const CategoryHeader: React.FC = () => {
 			<div className={styles.menu_categories}>
 				{categories.map((category) => (
 					<Button
+						sx={{m:1, p:1, backgroundColor:"darkcyan"}}
 						className={styles.categories}
 						variant="contained"
 						key={category.id}

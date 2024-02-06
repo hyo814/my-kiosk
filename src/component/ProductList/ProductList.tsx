@@ -41,7 +41,15 @@ const ProductList: React.FC = () => {
 						onClick={() => addProductToSelectedItem(product)}
 						key={product.name}
 						className={styles.product_menu_button}
-						style={{ backgroundImage: `url(${product.url})` }}
+						style={{
+							backgroundImage: `url(${product.url})`,
+							padding: "5px",
+							margin: "10px",
+							borderRadius: "20px",
+							fontSize: "20px",
+							fontWeight: "700",
+							color: "darkcyan"
+					}}
 					>
 						{product.name}<br />
 						{getPriceDisplayStr(Number(product.price))}
