@@ -1,6 +1,6 @@
 {
-  "name": "payhere-fe",
-  "version": "0.1.0",
+  "name": "payhere-test-fe",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",
