@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "../../App.module.css";
 import { Button } from "@mui/material";
 import { getPriceDisplayStr } from "../Utils/utils";
-import { Product, SelectedProduct } from "../../type/Product";
+import { Product, SelectedProduct } from "../type/Product";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { productsState, selectedCategoryIdState, selectedItemsState } from "../../state/atoms";
 

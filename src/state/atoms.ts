@@ -1,7 +1,7 @@
 import {atom} from 'recoil';
-import {Category} from '../type/Category';
-import {Product, SelectedProduct} from '../type/Product';
-import {Coupon} from '../type/Coupon';
+import {Category} from '../component/type/Category';
+import {Product, SelectedProduct} from '../component/type/Product';
+import {Coupon} from '../component/type/Coupon';
 
 export const categoriesState = atom<Category[]>({
 	key: 'categoriesState',

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "../../App.module.css";
-import CouponManager from "../CouponManager/CouponManager";
 import CartItemAdjustment from "../CartItemAdjustment/CartItemAdjustment";
 import { useRecoilValue } from "recoil";
 import { couponsState, selectedCouponIdState, selectedItemsState } from "../../state/atoms";
+import ProductControls from "../ProductControls/ProductControls";
 
 const CheckoutList: React.FC = () => {
 	const coupons = useRecoilValue(couponsState);
@@ -17,7 +17,7 @@ const CheckoutList: React.FC = () => {
 			{selectedItem.length > 0 ?
 				<>
 					<div className={styles.filtered_products_result}>
-						<CouponManager/>
+						<ProductControls/>
 						{selectedCoupon && <CartItemAdjustment />}
 					</div>
 				</>

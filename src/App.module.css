@@ -29,8 +29,9 @@
 }
 
 .filtered_products_result {
+    margin:15px;
     float: right;
-    width: 50%;
+    width: 48%;
 }
 
 .selected_item {
@@ -77,7 +78,6 @@
     float: right;
     background-color: bisque;
 }
-
 
 .modal {
     position: fixed;

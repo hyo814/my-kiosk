@@ -1,5 +1,5 @@
-import {SelectedProduct} from "../../type/Product";
-import {Coupon} from "../../type/Coupon";
+import {SelectedProduct} from "../type/Product";
+import {Coupon} from "../type/Coupon";
 
 export 	const getPriceDisplayStr = (price: number, d = 0) => {
 	return `${Number(price?.toFixed(d)).toLocaleString().split(/\s/).join(",")}`;

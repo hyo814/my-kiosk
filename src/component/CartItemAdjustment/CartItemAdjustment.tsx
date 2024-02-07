@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "../../App.module.css";
-import {Coupon} from "../../type/Coupon";
+import {Coupon} from "../type/Coupon";
 import {useRecoilValue} from "recoil";
 import {couponsState, selectedCouponIdState} from "../../state/atoms";
 

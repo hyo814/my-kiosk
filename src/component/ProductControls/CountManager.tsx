@@ -1,18 +1,12 @@
 import React from 'react';
 import styles from "../../App.module.css";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import {Button, ButtonGroup} from "@mui/material";
 import {calculateItemTotal, getPriceDisplayStr} from "../Utils/utils";
-import {useRecoilState, useRecoilValue} from "recoil";
-import {couponsState, selectedItemsState, selectedCouponIdState} from "../../state/atoms";
+import {useRecoilState} from "recoil";
+import { selectedItemsState} from "../../state/atoms";
 
-const CouponManager: React.FC = () => {
+const CountManager: React.FC = () => {
 	const [selectedItem, setSelectedItem] = useRecoilState(selectedItemsState)
-	const coupon = useRecoilValue(couponsState)
-	const [selectedCouponId, setSelectedCouponId] = useRecoilState(selectedCouponIdState)
 	const removeItem = (productName: string) => {
 		setSelectedItem(currentItems => currentItems.filter(item => item.name !== productName));
 	};
@@ -59,19 +53,6 @@ const CouponManager: React.FC = () => {
 	
 	return (
 		<>
-			<div className={styles.selected_item}>
-				<FormControl variant="standard">
-					<InputLabel>쿠폰 선택</InputLabel>
-					<Select
-						className={styles.coupon}
-						onChange={(e) => setSelectedCouponId(e.target.value)}
-						value={selectedCouponId}
-					>
-						{coupon.map((coupons) => (
-							<MenuItem key={coupons.name} value={coupons.name}>{coupons.name}</MenuItem>
-						))}
-					</Select>
-				</FormControl>
 				{selectedItem.map((item, itemIndex) => (
 					<>
 						<div className={styles.selected_item_card} key={itemIndex}>
@@ -104,9 +85,8 @@ const CouponManager: React.FC = () => {
 						</div>
 					</>
 				))}
-			</div>
 		</>
 	);
 };
 
-export default CouponManager;
+export default CountManager;
