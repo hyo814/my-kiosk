@@ -4,8 +4,8 @@ import {Button} from "@mui/material";
 import {useRecoilState, useRecoilValue} from "recoil";
 import {paymentState, couponsState, selectedItemsState, selectedCouponIdState} from "../../state/atoms";
 import {getPriceDisplayStr, calculateFinalTotalWithDiscount} from '../Utils/utils';
-import Specification from "../paymentModal/Specification";
-import Modal from '../paymentModal/Modal';
+import Specification from "../PaymentModal/Specification";
+import Modal from "../PaymentModal/Modal";
 
 const PaymentSummary: React.FC = () => {
 	const coupons = useRecoilValue(couponsState);
