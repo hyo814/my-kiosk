@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import axios from 'axios';
 import {useRecoilState} from 'recoil';
 import styles from "./App.module.css";
-import PaymentSummary from "./component/PaymentSummary/PaymentSummary";
 import CategoryHeader from "./component/CategoryHeader/CategoryHeader";
 import ProductList from "./component/ProductList/ProductList";
 import CheckoutList from "./component/CheckoutList/CheckoutList";
@@ -46,7 +45,6 @@ const App = () => {
 					<ProductList/>
 					<CheckoutList/>
 				</div>
-				<PaymentSummary/>
 			</div>
 		</>
 	);

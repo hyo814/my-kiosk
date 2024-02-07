@@ -19,7 +19,7 @@ export const calculateFinalTotalWithDiscount = (selectedCoupon: Coupon | undefin
 	const totalWithoutDiscount = calculateCumulativeTotal(selectedItem);
 	let discountAmount = 0;
 	let finalTotalWithDiscount: number;
-	
+
 	if (selectedCoupon) {
 		if (selectedCoupon.type === 'amount') {
 			discountAmount = selectedCoupon.price;
@@ -27,7 +27,9 @@ export const calculateFinalTotalWithDiscount = (selectedCoupon: Coupon | undefin
 			discountAmount = (totalWithoutDiscount * selectedCoupon.price) / 100;
 		}
 	}
-	finalTotalWithDiscount = totalWithoutDiscount - discountAmount
+	finalTotalWithDiscount = totalWithoutDiscount - discountAmount;
+	finalTotalWithDiscount = Math.ceil(finalTotalWithDiscount);
+	
 	if (finalTotalWithDiscount <= 0) {
 		return 0;
 	}

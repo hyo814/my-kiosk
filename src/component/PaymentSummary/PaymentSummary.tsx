@@ -17,8 +17,8 @@ const PaymentSummary: React.FC = () => {
 	const openModal = () => setShowModal(true);
 	const closeModal = () => setShowModal(false);
 	
-	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
-	
+	const selectedCoupon = coupons.find(coupon => coupon.name === selectedCouponId);
+
 	return (
 		<>
 			{selectedItem.length > 0 && (

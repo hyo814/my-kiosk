@@ -8,7 +8,7 @@ const CartItemAdjustment: React.FC = () => {
 	const coupons = useRecoilValue(couponsState);
 	const selectedCouponId = useRecoilValue(selectedCouponIdState);
 	
-	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
+	const selectedCoupon = coupons.find(coupon => coupon.name === selectedCouponId);
 	
 	const getDiscountText = (selectedCoupon: Coupon | undefined) => {
 		if (!selectedCoupon) {

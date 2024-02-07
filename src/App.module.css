@@ -36,7 +36,7 @@
 
 .selected_item {
     width: 550px;
-    height:550px;
+    height:450px;
     overflow-y: auto;
 }
 
