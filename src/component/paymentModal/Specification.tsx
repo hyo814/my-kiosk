@@ -11,7 +11,7 @@ const Specification: React.FC = () => {
 	const selectedItem = useRecoilValue(selectedItemsState);
 	const coupons = useRecoilValue(couponsState);
 	
-	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
+	const selectedCoupon = coupons.find(coupon => coupon.name === selectedCouponId);
 	
 	return (
 		<>

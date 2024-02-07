@@ -8,7 +8,7 @@ const CouponPayPaper: React.FC = () => {
 	const selectedCouponId = useRecoilValue(selectedCouponIdState);
 	const coupons = useRecoilValue(couponsState);
 	
-	const selectedCoupon = coupons.find(coupon => coupon.id === selectedCouponId);
+	const selectedCoupon = coupons.find(coupon => coupon.name === selectedCouponId);
 	
 	return (
 		<div className={styles.apply_discount}>
