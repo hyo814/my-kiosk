@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Modal from "../PaymentModal/Modal";
+import Modal from "../PaymentModal/Modal"
 import styles from '../../App.module.css';
 import {Button} from "@mui/material";
 import Specification from "../PaymentModal/Specification";
