@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import Modal from "../PaymentModal/Modal";
 import styles from '../../App.module.css';
 import {Button} from "@mui/material";
 import Specification from "../PaymentModal/Specification";
 import {useRecoilState, useRecoilValue} from "recoil";
 import {paymentState, couponsState, selectedItemsState, selectedCouponIdState} from "../../state/atoms";
 import {getPriceDisplayStr, calculateFinalTotalWithDiscount} from '../Utils/utils';
+import Modal from "../PaymentModal/Modal";
 
 const PaymentSummary: React.FC = () => {
 	const coupons = useRecoilValue(couponsState);
