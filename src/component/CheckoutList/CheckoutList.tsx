@@ -4,7 +4,7 @@ import CartItemAdjustment from "../CartItemAdjustment/CartItemAdjustment";
 import { useRecoilValue } from "recoil";
 import { couponsState, selectedCouponIdState, selectedItemsState } from "../../state/atoms";
 import ProductControls from "../ProductControls/ProductControls";
-import PaymentSummary from "../PaymentSummary/PaymentSummary";
+import PaymentSummary from "../paymentSummary/PaymentSummary";
 
 const CheckoutList: React.FC = () => {
 	const coupons = useRecoilValue(couponsState);
