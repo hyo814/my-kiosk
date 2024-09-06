@@ -1,11 +1,11 @@
-import payhereCategories from "./data/categories"
-import payhereProducts from "./data/products"
-import payhereCoupons from "./data/coupons"
+import frontendCategories from "./data/categories"
+import frontendProducts from "./data/products"
+import frontendCoupons from "./data/coupons"
 
 const responses = {
-  payhereCategories,
-  payhereProducts,
-  payhereCoupons,
+  frontendCategories,
+  frontendProducts,
+  frontendCoupons,
 }
 
 export default responses

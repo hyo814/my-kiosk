@@ -15,7 +15,7 @@ export const productsState = atom<Product[]>({
 
 export const selectedCategoryIdState = atom<string>({
 	key: 'selectedCategoryIdState',
-	default: 'payhere.coffee'
+	default: 'frontend.coffee'
 });
 
 export const selectedItemsState = atom<SelectedProduct[]>({

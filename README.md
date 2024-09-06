@@ -1,10 +1,5 @@
-## Payhere Front-end 채용 과제
-
 ### 프로젝트 개요
-이 프로젝트는 Payhere의 Front-end 개발자 채용 과정의 일환으로 제작되었습니다.
 사용자가 제품을 선택하고, 할인 쿠폰을 적용한 뒤 결제할 수 있는 웹 페이지를 구현하는 것이 목적입니다.
-
-(["homepage"]: "https://thriving-souffle-725d1a.netlify.app/")
 
 ### 필요 소프트웨어
 - Node.js (버전 14 이상 권장)

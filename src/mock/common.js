@@ -1,6 +1,6 @@
 const product_coffee = [
     {
-        categoryId: "payhere.coffee",
+        categoryId: "frontend.coffee",
         name: "아메리카노",
         price: 1500,
         url: "./assets/image/americano.png",
@@ -19,7 +19,7 @@ const product_coffee = [
         ],
     },
     {
-        categoryId: "payhere.coffee",
+        categoryId: "frontend.coffee",
         name: "헤이즐넛 아메리카노",
         url: "./assets/image/hazelnut-americano.png",
         price: 2000,
@@ -35,7 +35,7 @@ const product_coffee = [
         ],
     },
     {
-        categoryId: "payhere.coffee",
+        categoryId: "frontend.coffee",
         name: "허니 아메리카노",
         url: "./assets/image/honey.jpeg",
         price: 2000,
@@ -51,7 +51,7 @@ const product_coffee = [
         ],
     },
     {
-        categoryId: "payhere.coffee",
+        categoryId: "frontend.coffee",
         name: "에스프레소",
         url: "./assets/image/espresso.jpeg",
         price: 1800,
@@ -74,7 +74,7 @@ const product_coffee = [
 
 const product_milktea = [
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "얼그레이 밀크티",
         url: "./assets/image/earl-gray-milktea.jpeg",
         price: 3000,
@@ -92,7 +92,7 @@ const product_milktea = [
         ],
     },
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "얼그레이 버블티",
         url: "./assets/image/earl-gray-bubble.jpeg",
         price: 3500,
@@ -115,7 +115,7 @@ const product_milktea = [
         ],
     },
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "딸기라떼",
         url: "./assets/image/strawberry-latte.jpeg",
         price: 4500,
@@ -129,7 +129,7 @@ const product_milktea = [
         ],
     },
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "초코라떼",
         url: "./assets/image/choco-latte.jpeg",
         price: 3500,
@@ -143,7 +143,7 @@ const product_milktea = [
         ],
     },
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "녹차라떼",
         url: "./assets/image/green-tea-latte.jpeg",
         price: 3500,
@@ -157,7 +157,7 @@ const product_milktea = [
         ],
     },
     {
-        categoryId: "payhere.milktea",
+        categoryId: "frontend.milktea",
         name: "흑임자라떼",
         price: 3500,
         url: "./assets/image/black-sesame-latte.jpeg",
@@ -175,13 +175,13 @@ const product_milktea = [
 
 const product_juice = [
     {
-        categoryId: "payhere.juice",
+        categoryId: "frontend.juice",
         name: "수박쥬스",
         url: "./assets/image/watermelon.jpeg",
         price: 4000,
     },
     {
-        categoryId: "payhere.juice",
+        categoryId: "frontend.juice",
         name: "딸기쥬스",
         url: "./assets/image/strawberry.jpeg",
         price: 3500,
@@ -193,13 +193,13 @@ const product_juice = [
         ],
     },
     {
-        categoryId: "payhere.juice",
+        categoryId: "frontend.juice",
         name: "망고쥬스",
         url: "./assets/image/mango.jpeg",
         price: 4500,
     },
     {
-        categoryId: "payhere.juice",
+        categoryId: "frontend.juice",
         name: "복숭아쥬스",
         url: "./assets/image/peach.jpeg",
         price: 3500,
@@ -208,58 +208,58 @@ const product_juice = [
 
 const product_desert = [
     {
-        categoryId: "payhere.desert",
+        categoryId: "frontend.desert",
         name: "딸기 마카롱",
         url: "./assets/image/strawberry-macalong.jpeg",
         price: 2000,
     },
     {
-        categoryId: "payhere.desert",
+        categoryId: "frontend.desert",
         name: "초코 마카롱",
         url: "./assets/image/choco-macalong.jpeg",
         price: 2000,
     },
     {
-        categoryId: "payhere.desert",
+        categoryId: "frontend.desert",
         name: "초코칩 쿠키",
         url: "./assets/image/choco-chip-cookie.jpeg",
         price: 1500,
     },
     {
-        categoryId: "payhere.desert",
+        categoryId: "frontend.desert",
         name: "아몬드 쿠키",
         url: "./assets/image/almond-cookie.jpeg",
         price: 1500,
     },
 ]
 
-export const payhereCategories = [
+export const frontendCategories = [
     {
-        id: "payhere.coffee",
+        id: "frontend.coffee",
         name: "Coffee",
     },
     {
-        id: "payhere.milktea",
+        id: "frontend.milktea",
         name: "Milk Tea",
     },
     {
-        id: "payhere.juice",
+        id: "frontend.juice",
         name: "Juice",
     },
     {
-        id: "payhere.desert",
+        id: "frontend.desert",
         name: "Desert",
     },
 ]
 
-export const payhereProducts = [
+export const frontendProducts = [
     ...product_coffee,
     ...product_milktea,
     ...product_juice,
     ...product_desert,
 ]
 
-export const payhereCoupons = [
+export const frontendCoupons = [
     {
         id: "coupon_1",
         type: "amount",

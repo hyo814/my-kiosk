@@ -1,9 +1,9 @@
-import { payhereCategories } from "../../common"
+import { frontendCategories } from "../../common"
 
 const categoriesData = {
   uri: "/categories",
   handleResponse: () => {
-    const data = payhereCategories
+    const data = frontendCategories
 
     return {
       data,
